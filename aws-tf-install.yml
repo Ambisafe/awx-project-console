@@ -29,6 +29,7 @@
   # surveys:
   #
   # {{ project_env_zone }}
+  # {{ domain_name_system }}
   # {{ terraform_arg }}
 
   vars:
@@ -46,13 +47,14 @@
     - include_role:
         name: terraform-aws
       vars:
+        project_zone_route53:  "{{ true if domain_name_system == 'AWS Route53' else false }}"
+        project_zone_cloudflare: "{{ true if domain_name_system == 'Cloudflare' else false }}"
         project_type: "{{ project_type }}"
         project_name: "{{ project_name }}"
         project_deployment_environment: "{{ project_env_name }}"
-        project_zone_cloudflare: false
         project_cloudfront_for_alb: true
         project_ecs: true
-        project_ecc: true
+        project_elasticache: true
         project_alb: true
         project_rds: true
         project_iam: true
@@ -77,12 +79,13 @@
           protocol: "tcp"
           cidr_blocks:
             - "0.0.0.0/0"
+        ecs_nginx_conf_b64: "{{ lookup('file', 'files/nginx.conf') | b64encode }}"
 
-        ecc_engine: "redis"
-        ecc_port: 6379
-        ecc_parameter_group_name: "default.redis3.2"
-        ecc_node_type: "cache.t2.small"
-        ecc_num_cache_nodes: 3
+        elasticache_engine: "redis"
+        elasticache_port: 6379
+        elasticache_parameter_group_name: "default.redis3.2"
+        elasticache_node_type: "cache.t2.small"
+        elasticache_num_cache_nodes: 3
 
         cloudflare_email: "{{ cloudflare_email }}"
         cloudflare_access_token: "{{ cloudflare_access_token }}"
@@ -102,4 +105,3 @@
         skip_env_domain_prefix: true
 
         terraform_arg: "{{ terraform_arg }}"
-
