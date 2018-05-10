@@ -15,7 +15,7 @@
       tags: configuration
 
     #destroy all resources
-    - name: Destroy the logserver installation on AWS
+    - name: Destroy the installation on AWS
       command: "terraform destroy -force -no-color {{ terraform_arg }}"
       args:
         chdir: "{{ terraform_data_dir }}/{{ organization_name }}/{{ project_type }}/{{ project_name }}/{{ project_deployment_environment }}"

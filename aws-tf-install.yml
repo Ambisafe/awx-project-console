@@ -102,6 +102,7 @@
         db_password: "{{ rds_pass }}"
 
         project_env_zone: "{{ project_env_zone }}"
-        skip_env_domain_prefix: true
+        skip_env_domain_prefix: "{{ skip_env_domain_prefix }}"
+        skip_project_name_domain_prefix: "{{ skip_project_name_domain_prefix }}"
 
         terraform_arg: "{{ terraform_arg }}"
