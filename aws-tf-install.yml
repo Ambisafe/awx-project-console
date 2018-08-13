@@ -81,10 +81,10 @@
             - "0.0.0.0/0"
         ecs_nginx_conf_b64: "{{ lookup('file', 'files/nginx.conf') | b64encode }}"
 
-        ecc_engine: "redis"
-        ecc_port: 6379
-        ecc_node_type: "cache.t2.small"
-        ecc_num_cache_nodes: 3
+        elasticache_engine: "redis"
+        elasticache_port: 6379
+        elasticache_node_type: "cache.t2.small"
+        elasticache_num_cache_nodes: 3
 
         docker_hub_username: "{{ docker_hub_username }}"
         docker_hub_password: "{{ docker_hub_password }}"
@@ -99,5 +99,6 @@
 
         project_env_zone: "{{ project_env_zone }}"
         skip_env_domain_prefix: "{{ skip_env_domain_prefix }}"
+        skip_project_name_domain_prefix: "{{ skip_project_name_domain_prefix }}"
 
         terraform_arg: "{{ terraform_arg }}"
