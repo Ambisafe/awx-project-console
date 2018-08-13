@@ -71,7 +71,7 @@
           to_port: 22
           protocol: "tcp"
           cidr_blocks:
-            - "185.41.248.158/32"
+            - "62.80.166.34/32"
             - "13.229.188.86/32"
         alb_sg_ingress:
         - from_port: 443
@@ -86,9 +86,6 @@
         elasticache_parameter_group_name: "default.redis3.2"
         elasticache_node_type: "cache.t2.small"
         elasticache_num_cache_nodes: 3
-
-        cloudflare_email: "{{ cloudflare_email }}"
-        cloudflare_access_token: "{{ cloudflare_access_token }}"
 
         docker_hub_username: "{{ docker_hub_username }}"
         docker_hub_password: "{{ docker_hub_password }}"
