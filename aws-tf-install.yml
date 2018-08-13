@@ -83,7 +83,7 @@
 
         elasticache_engine: "redis"
         elasticache_port: 6379
-        elasticache_parameter_group_name: "default.redis3.2"
+        elasticache_parameter_group_name: "default.redis3.2.10"
         elasticache_node_type: "cache.t2.small"
         elasticache_num_cache_nodes: 3
 
