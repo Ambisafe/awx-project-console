@@ -60,8 +60,8 @@
         project_iam: true
         project_zone_rds_cluster: true
 
-        ecs_min_size: 0
-        ecs_max_size: 2
+        ecs_min_size: 1
+        ecs_max_size: 1
         ecs_desired_capacity: 1
         ecs_instance_type: "t2.large"
         ecs_block_device_size: 32
@@ -98,7 +98,7 @@
         db_password: "{{ rds_pass }}"
 
         project_env_zone: "{{ project_env_zone }}"
-        skip_env_domain_prefix: "{{ skip_env_domain_prefix }}"
-        skip_project_name_domain_prefix: "{{ skip_project_name_domain_prefix }}"
+        skip_env_domain_prefix: false
+        skip_project_name_domain_prefix: false
 
         terraform_arg: "{{ terraform_arg }}"
